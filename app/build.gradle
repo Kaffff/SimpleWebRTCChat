@@ -17,6 +17,8 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+        buildConfigField "String", "SKYWAY_APIKEY", "\"${project.property("skywayApiKey")}\""
+        buildConfigField "String", "SKYWAY_DOMAIN", "\"${project.property("skywayDomain")}\""
     }
 
     buildTypes {
@@ -59,4 +61,8 @@ dependencies {
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$compose_version"
     debugImplementation "androidx.compose.ui:ui-test-manifest:$compose_version"
+
+    implementation "androidx.compose.runtime:runtime-livedata:$compose_version"
+
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
 }
